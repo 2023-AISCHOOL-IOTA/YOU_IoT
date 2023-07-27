@@ -1,4 +1,11 @@
 # Team Name : 너 IoT야?
+- <strong>팀장</strong>
+   - 이정연
+- <strong>팀원</strong>
+   - 김주완
+   - 김태완
+   - 박겸
+   - 임한별
 <hr>
 
 # roadParKING![logo](https://github.com/jung-yeon/ai_first_project/assets/77679326/3db0b31e-7295-434c-9579-5992b19038e9)
