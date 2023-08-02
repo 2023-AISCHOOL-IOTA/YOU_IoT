@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # MySQL 연결 설정
 app.config["MYSQL_HOST"] = "localhost"  # MySQL 호스트 주소
-app.config["MYSQL_USER"] = "사용자 이름"  # MySQL 사용자 이름
+app.config["MYSQL_USER"] = "root"  # MySQL 사용자 이름
 app.config["MYSQL_PASSWORD"] = "사용자 비밀번호"  # MySQL 비밀번호
 app.config["MYSQL_DB"] = "사용자 데이터베이스 이름"  # 사용할 데이터베이스 이름
 
