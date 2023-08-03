@@ -1,10 +1,3 @@
-#20번 핀으로 led
-import board
-import neopixel
-import time
-
-pixels = neopixel.NeoPixel(board.D20, 15)
-
 #pixels[0] = (255, 0, 0) 첫 번째 led 빨간색
 #pixels.fill((0, 255, 0)) 전체 led 녹색
 #우리가 만들 무늬에 따라 아래 내용 수정.
@@ -34,19 +27,7 @@ def turn_off_led_bar():
 def turn_on_led_bar(color=(255, 0, 0)):
     set_led_bar_color(color)
 
-while True:
-    # LED 바를 빨간색으로 켜기
-    turn_on_led_bar((255, 0, 0))
-    time.sleep(1)
 
-    # LED 바를 녹색으로 켜기
-    turn_on_led_bar((0, 255, 0))
-    time.sleep(1)
-
-    # LED 바를 파란색으로 켜기
-    turn_on_led_bar((0, 0, 255))
-    time.sleep(1)
-
-    # LED 바 끄기
-    turn_on_led_bar((255,255,255))
-    time.sleep(1)
+#led바를 빨간색으로 켜기   (R,G,B)
+turn_on_led_bar((255, 0, 0))
+time.sleep(1)
