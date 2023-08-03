@@ -5,5 +5,7 @@ a{text-decoration: none;} /* 링크에 밑줄 제거 */
 header{
     width: 800px; /* 메인 이미지의 너비 사이즈와 같음 */
     height: 95px;
-    background-color: auto;
+    background-color: black;
 }
+
+nav li a{color: white;}
