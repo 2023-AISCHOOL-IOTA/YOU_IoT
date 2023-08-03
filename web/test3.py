@@ -1,26 +1,48 @@
-import pandas as pd
-import sqlite3
-import json
+import csv
 
-csv_file_path = 'C:\\Users\\aischool03\\OneDrive - 인공지능산업융합사업단\\바탕 화면\\project\\you_iot\\web\\pp_parking.csv'
-database_file_path = 'C:\\Users\\aischool03\\OneDrive - 인공지능산업융합단\\바탕 화면\\project\\you_iot\\web\\pp_parking.db'
-json_file_path = 'C:\\Users\\aischool03\\OneDrive - 인공지능산업융합단\\바탕 화면\\project\\you_iot\\web\\pp_parking.json'
-table_name = 'pp_parking'
+# CSV 파일 경로 지정
+file_path = "data/pp_parking.csv"
 
-# Read the data from the CSV file
-data = pd.read_csv(csv_file_path)
 
-# Connect to the SQLite database and save the data
-conn = sqlite3.connect(database_file_path)
-data.to_sql(table_name, conn, if_exists='replace', index=False)
-conn.close()
 
-# Read the data from the database and convert it to JSON
-conn = sqlite3.connect(database_file_path)
-query = f"SELECT * FROM {table_name}"
-json_data = pd.read_sql_query(query, conn).to_json(orient='records')
-conn.close()
+import pymysql as ps
 
-# Save the JSON data to a file
-with open(json_file_path, 'w', encoding='utf-8') as jsonfile:
-    jsonfile.write(json_data)
+db = ps.connect(
+    host="project-db-stu3.smhrd.com", user="Insa4_IOTA_hacksim_3", passwd="aishcool3", db="Insa4_IOTA_hacksim_3", charset="utf8",
+    port = 3307
+)
+
+
+# 커서 생성
+cursor = db.cursor()
+cursor.execute("use Insa4_IOTA_hacksim_3")
+
+
+# CSV 파일 열기
+with open(file_path, newline="") as csvfile:
+    # CSV 파일 읽기
+    reader = csv.reader(csvfile)
+    next(reader)
+    
+    for row in reader:
+    # INSERT 쿼리 실행 parkingID = int(row[0])
+        pp_parkingID = int(row[0])
+        road_address = row[1]
+        remaining_seats = int(row[2])
+        Sortation = row[3]
+        parking_name = row[4]
+        parking_type = row[5]
+        
+        sql = "INSERT INTO parking (pp_parkingID, road_address, remaining_seats, Sortation, parking_name, parking_type) VALUES (%s, %s, %s, %s, %s, %s)"
+        values = (pp_parkingID, road_address, remaining_seats, Sortation, parking_name, parking_type)
+        cursor.execute(sql, values)
+
+
+
+
+
+# 변경사항 커밋
+db.commit()
+# 연결 종료
+cursor.close()
+db.close()
