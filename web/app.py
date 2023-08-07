@@ -4,6 +4,7 @@ import mysql.connector
 
 app = Flask(__name__)
 
+
 app.config["MYSQL_HOST"] = "project-db-stu3.smhrd.com"  # MySQL 호스트 주소
 app.config["MYSQL_USER"] = "Insa4_IOTA_hacksim_3"  # MySQL 사용자 이름
 app.config["MYSQL_PASSWORD"] = "aishcool3"  # MySQL 비밀번호
@@ -21,10 +22,9 @@ mysql_conn = mysql.connector.connect(
 @app.route("/", methods=["GET"])
 def home():
     
-    return render_template("parking_website.html")
+    return render_template("webserver.html")
 
-##### web_table_parking
-@app.route("/parking", methods=["GET"])
+@app.route("/servor", methods=["GET"])
 def parking():
      # 커서 객체 생성
     cursor = mysql_conn.cursor()
@@ -32,40 +32,25 @@ def parking():
     # 예시로 모든 레코드를 조회하고 결과를 리스트로 만들어 JSON으로 반환합니다.
     query = "SELECT * FROM parking;"  # your_table_name에는 사용할 테이블 이름을 넣으세요.
     cursor.execute(query)
-    
+
     data = cursor.fetchall()
+    num1 = data[0]
     cursor.close()
 
     # index.html 템플릿 렌더링하며 데이터 전달
-    return render_template("CSS_parking.html", data=data)
+    return render_template("CSS_parking.html", data=data, num1=num1)
 
-##### web_table_holiday
-@app.route("/holiday", methods=["GET"])
+    return render_template("servor.html")
+
+@app.route("/servor2", methods=["GET"])
 def holiday():
-    cursor = mysql_conn.cursor()
-
-    query = "SELECT * FROM holiday;"
-    cursor.execute(query)
     
-    # 커서와 연결 닫기
-    # cursor.close()
-    data = cursor.fetchall()
-    cursor.close()
+    return render_template("servor2.html")
 
-    return render_template("CSS_holiday.html", data=data)
-    
-##### web_table_street_park
-@app.route("/street_park", methods=["GET"])
+@app.route("/servor3", methods=["GET"])
 def street_park():
-    cursor = mysql_conn.cursor()
-
-    query = "SELECT * FROM street_park;"
-    cursor.execute(query)
     
-    street_data = cursor.fetchall()
-    cursor.close()
-
-    return render_template("CSS_street_park.html", data=street_data)
+    return render_template("servor3.html")
 
 if __name__ == "__main__":
-    app.run(host = "0.0.0.0", port = 8080, debug=True)
+    app.run(host = "localhost", debug=True)
