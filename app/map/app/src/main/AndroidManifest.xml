@@ -20,27 +20,30 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name="com.roadParkng.map.ParkingMapActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.roadParkng.map.StreetParkingListActivity"
+            android:exported="false" />
+        <activity
             android:name="com.roadParkng.map.ParkingListActivity"
-            android:exported="true" /> <!-- <intent-filter> -->
+            android:exported="false" /> <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-
         <!-- </intent-filter> -->
-<!--        네이티브 API키    -->
+        <!-- 네이티브 API키 -->
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="a1e87b239e91b474ca20155df8be82ad" />
 
         <activity
-            android:name="com.roadParkng.map.MainActivity"
-            android:exported="false">
+            android:name="com.roadParkng.mainbtnpage.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
