@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>parking</title>
+    <title>street_park</title>
     <style>
-       body {
+        body {
             padding: 1.5em;
             background: #f5f5f5;
-        }
-
+        } 
         /* 위에 흰 선 */
         .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 23px;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.925); 
-        position: absolute;
-        top: 0;
-        left: 0;
+            display: flex;
+            margin-left: 30px;
+            padding: 23px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.925); 
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .menu-list {
@@ -34,6 +33,10 @@
         padding: 10px;
         transition: opacity 0.3s ease;
         margin:100px 100px 100px; 
+        }
+
+        .menu-item a:hover {
+        opacity: 0.7;
         }
 
         /* 올려두면 폰트 색상 바뀌게 하기 */
@@ -60,17 +63,17 @@
          - auto : 양에 따라서 스크롤 바를 추가할지 자동으로 결정
            우리는 hidden으로 해도 잘리진 않음 
          */
-        table{
+        table {
             border: 1px #122aa1 solid;
             font-size: 0.9em;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
             width: 100%;
             border-collapse: separate;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: auto;
             padding-top: 50px;
+
         }
-        
         /* 텍스트 좌측 정렬 */
         th {
             background-color: #dde8e8;
@@ -113,30 +116,32 @@
 </head>
 <body>
       <!-- 스크롤바 제거하기 -->
-  <body style="overflow-x: hidden;">
-    <div class="container">
-        <div class="navbar">
-          <ul class="menu-list">
-            <li class="menu-item">
-              <a href="/"><strong>Home</strong></a></li> 
-            <li class="menu-item">
-              <a href="parking"><font color="orange"><strong>parking</strong></font></a></li> 
-            <li class="menu-item">
-              <a href="holiday"><strong>holiday</strong></a></li>
-            <li class="menu-item">
-              <a href="street_park"><strong>street park</strong></a></li>
-          </ul>
+    <body style="overflow-x: hidden;">
+        <div class="container">
+            <div class="navbar">
+            <ul class="menu-list">
+                <li class="menu-item">
+                <a href="/"><strong>Home</strong></a></li> 
+                <li class="menu-item">
+                <a href="parking"><strong>parking</strong></a></li> 
+                <li class="menu-item">
+                <a href="holiday"><strong>holiday</strong></a></li>
+                <li class="menu-item">
+                <a href="parking"><font color="orange"><strong>street park</strong></font></a></li> 
+            </ul>
         </div>
     </div>
-
     <table>
         <tr>
-            <th>주차장ID</th>
-            <th>주차장 주소</th>
-            <th>주차공간</th>
-            <th>공/민영</th>
-            <th>주차장 이름</th>
-            <th>노상/외</th>
+            <th>street_id</th>
+            <th>road_n</th>
+            <th>start_p</th>
+            <th>end_p</th>
+            <th>permit_a</th>
+            <th>distance</th>
+            <th>permit_t</th>
+            <th>holiday</th>
+            <th>restrict_c</th>
         </tr>
         {% for item in data %}
         <tr>
