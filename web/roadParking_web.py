@@ -25,7 +25,7 @@ cursor = mysql_conn.cursor()
 @app.route("/", methods=["GET"])
 def home():
     
-    return render_template("parking2_website.html")
+    return render_template("parking_website.html")
 
 ##### web_table_parking
 @app.route("/parking", methods=["GET"])

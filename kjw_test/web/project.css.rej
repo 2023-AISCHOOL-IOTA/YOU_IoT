@@ -1,0 +1,13 @@
+diff a/web/project.css b/web/project.css	(rejected hunks)
+@@ -5,5 +5,7 @@
+ header{
+     width: 800px; /* 메인 이미지의 너비 사이즈와 같음 */
+     height: 95px;
+-    background-color: auto;
+-}
+\ No newline at end of file
++    background-color: black;
++}
++
++nav li a{color: white;}
+\ No newline at end of file
