@@ -1,4 +1,4 @@
-package com.roadParkng.mainbtnpage;
+package com.example.mainbtnpage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,11 +13,11 @@ import android.widget.Button;
 
 import com.example.map.R;
 
-import com.roadParkng.dto.ParkingDTO;
-import com.roadParkng.dto.StreetParkingDTO;
-import com.roadParkng.map.ParkingListActivity;
-import com.roadParkng.map.ParkingMapActivity;
-import com.roadParkng.map.StreetParkingListActivity;
+import com.example.dto.ParkingDTO;
+import com.example.dto.StreetParkingDTO;
+import com.example.map.ParkingListActivity;
+import com.example.map.ParkingMapActivity;
+import com.example.map.StreetParkingListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,13 +62,12 @@ public class MainActivity extends AppCompatActivity{
         Button streetparking_findBtn = findViewById(R.id.roadParkingBtn);
         Button mapView_Btn = findViewById(R.id.mapViewBtn);
 
-
+        Intent mapintent = new Intent(getApplicationContext(), ParkingMapActivity.class);
 
         parking_findBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ParkingListActivity.class);
-
                 startActivity(intent);
             }
         });
@@ -82,11 +81,10 @@ public class MainActivity extends AppCompatActivity{
         mapView_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(mapintent);
 //                Intent intent = new Intent(getApplicationContext(), ParkingMapActivity.class);
+//                intent.putParcelableArrayListExtra("parkingList", new ArrayList<>(parkingAddressList));
 //                startActivity(intent);
-                Intent intent = new Intent(getApplicationContext(), ParkingMapActivity.class);
-                intent.putParcelableArrayListExtra("parkingList", new ArrayList<>(parkingAddressList));
-                startActivity(intent);
             }
         });
 

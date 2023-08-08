@@ -1,4 +1,4 @@
-package com.roadParkng.dto;
+package com.example.dto;
 
 import android.os.Parcel;
 import android.os.Parcelable;

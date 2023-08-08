@@ -1,5 +1,4 @@
-package com.roadParkng.map;
-
+package com.example.map;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,9 +18,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.map.R;
 import com.google.gson.Gson;
-import com.roadParkng.dto.ParkingDTO;
-import com.roadParkng.list.ParkingListSingleton;
-import com.roadParkng.mainbtnpage.MainActivity;
+import com.example.dto.ParkingDTO;
+import com.example.list.ParkingListSingleton;
+import com.example.mainbtnpage.MainActivity;
 
 
 import org.json.JSONArray;
@@ -30,7 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Objects;
 
 
 public class ParkingListActivity extends AppCompatActivity {
@@ -53,7 +52,7 @@ public class ParkingListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_parking_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//뒤로가기
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);//뒤로가기
         getSupportActionBar().setTitle("공영/민영 주차장위치");
 
         listView = findViewById(R.id.parkingName);

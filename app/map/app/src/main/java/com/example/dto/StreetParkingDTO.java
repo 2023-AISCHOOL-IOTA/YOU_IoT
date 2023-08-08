@@ -1,4 +1,4 @@
-package com.roadParkng.dto;
+package com.example.dto;
 
 import com.google.gson.annotations.SerializedName;
 

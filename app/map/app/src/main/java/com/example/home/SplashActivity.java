@@ -1,4 +1,4 @@
-package com.roadParkng.home;
+package com.example.home;
 
 
 import android.app.Activity;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.map.R;
-import com.roadParkng.mainbtnpage.MainActivity;
+import com.example.mainbtnpage.MainActivity;
 
 public class SplashActivity extends Activity {
     //어플시작할때 모든 데이터를가지고 와서 list에 저장

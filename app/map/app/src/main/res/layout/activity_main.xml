@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.roadParkng.mainbtnpage.MainActivity">
+    tools:context="com.example.mainbtnpage.MainActivity">
 
     <Button
         android:id="@+id/roadParkingBtn"

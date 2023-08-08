@@ -19,7 +19,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.roadParkng.home.SplashActivity"
+            android:name="com.example.home.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,20 +29,20 @@
 
 
         <activity
-            android:name="com.roadParkng.map.ParkingMapActivity"
+            android:name="com.example.map.ParkingMapActivity"
             android:exported="false" />
         <activity
-            android:name="com.roadParkng.map.StreetParkingListActivity"
+            android:name="com.example.map.StreetParkingListActivity"
             android:exported="false" />
         <activity
-            android:name="com.roadParkng.map.ParkingListActivity"
+            android:name="com.example.map.ParkingListActivity"
             android:exported="false" />
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="a1e87b239e91b474ca20155df8be82ad" />
 
         <activity
-            android:name="com.roadParkng.mainbtnpage.MainActivity">
+            android:name="com.example.mainbtnpage.MainActivity">
 
         </activity>
     </application>

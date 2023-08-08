@@ -1,6 +1,6 @@
-package com.roadParkng.list;
+package com.example.list;
 
-import com.roadParkng.dto.ParkingDTO;
+import com.example.dto.ParkingDTO;
 
 import java.util.ArrayList;
 import java.util.List;

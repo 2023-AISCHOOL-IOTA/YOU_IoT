@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.roadParkng.map.ParkingListActivity">
+    tools:context="com.example.map.ParkingListActivity">
 
 <!--    <RelativeLayout-->
 <!--        android:id="@+id/map_view"-->

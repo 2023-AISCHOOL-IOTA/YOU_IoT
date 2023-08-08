@@ -1,20 +1,19 @@
-package com.roadParkng.map;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+package com.example.map;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.map.R;
-import com.roadParkng.dto.StreetParkingDTO;
-import com.roadParkng.mainbtnpage.MainActivity;
+import com.example.dto.StreetParkingDTO;
+import com.example.mainbtnpage.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
