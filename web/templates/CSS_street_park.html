@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>street_park</title>
+    <title>Street Park</title>
     <style>
+        /* 전체 페이지 배경, 간격, 글꼴에 대한 스타일링 */
         body {
             padding: 1.5em;
-            background: #f5f5f5;
-        } 
-        /* 위에 흰 선 */
+            background: #f5f5f5; 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+        }
+
+        /* 네비게이션 바에 대한 스타일링 */
         .navbar {
-            display: flex;
-            margin-left: 30px;
-            padding: 23px;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.925); 
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            display: flex; /* 메뉴 정렬을 위한 것 */
+            align-items: center; /* 수직 중심 항목 */
+            justify-content: space-between; /* 항목을 고르게 펼침 */
+            padding: 23px; /* 네비게이션 바 주변 패딩 */
+            width: 100%; /* 전체 너비 */
+            background-color: rgba(255, 255, 255, 0.925); /* 반투명 흰색 바탕 */
+            position: absolute; /* 포지셔닝 유형 */
+            top: 0; /* 상단에 고정 */
+            left: 0; /* 수평 중심 */
         }
 
+        /* 메뉴 목록 스타일링 */
         .menu-list {
-        list-style: none;
-        display: flex;
-        margin: 0 auto; 
+            list-style: none; /* 기본 목록 글머리 기호 제거 */
+            display: flex; /* 메뉴 항목 정렬을 위한 Flex 디스플레이 */
+            margin: 0 auto; /* 중앙 정렬 메뉴 목록 */
         }
 
+        /* 메뉴 아이템별 스타일링 */
         .menu-item a {
-        text-decoration: none;
-        color: #000000; 
-        font-size: 20px;
-        padding: 10px;
-        transition: opacity 0.3s ease;
-        margin:100px 100px 100px; 
+            text-decoration: none; /* 링크에서 밑줄 제거 */
+            color: #000;
+            font-size: 20px; 
+            padding: 10px; /* 메뉴 항목 주위에 패딩 */
+            transition: opacity 0.3s ease; /* 호버에서의 부드러운 불투명도 전이 */
+            margin: 100px 100px 100px; /* 메뉴 항목 간 마진 */
         }
 
-        .menu-item a:hover {
-        opacity: 0.7;
-        }
-
-        /* 올려두면 폰트 색상 바뀌게 하기 */
+        /* 메뉴 아이템 링크에 대한 스타일링 */
         a:hover {
-        color : orange;
+            color: orange; /* 마우스 갖다대면 텍스트 색상 변경 */
         }
         
         /*
@@ -63,42 +65,44 @@
          - auto : 양에 따라서 스크롤 바를 추가할지 자동으로 결정
            우리는 hidden으로 해도 잘리진 않음 
          */
+
+        /* 데이터 테이블에 대한 스타일링 */
         table {
-            border: 1px #122aa1 solid;
+            border: 1px solid #122aa1;
             font-size: 0.9em;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
             width: 100%;
             border-collapse: separate;
-            border-radius: 20px;
+            border-radius: 5px;
             overflow: auto;
-            padding-top: 50px;
-
+            margin-top: 50px;
         }
-        /* 텍스트 좌측 정렬 */
+
+        /* 데이터 헤더 셀에 대한 스타일링 */
         th {
             background-color: #dde8e8;
             text-align: center;
+            padding: 10px;
         }
         
-        /* 
-        색 바꿔도 달라지는 거 없음 
-        없어도 무방함
-        */      
+        /* 테이블 헤더 행에 대한 스타일 */
         thead {
             font-weight: bold;
             color: #fff;
             background: #73685d;
         }
 
-        /* 1~6에 해당하는 컬럼 색 바꾸려고 추가해봤는데 안 됨 */
-        thead th {
-            color: red;
-        }
-        
-        /* 각 셀의 높이? 넓이?가 달라짐 */
+        /* 테이블 데이터 셀 및 헤더 셀에 대한 스타일링 */
         td, th {
             padding: 1em 0.5em;
             vertical-align: middle;
+        }
+        
+        /* 테이블 데이터 셀에 대한 스타일링 */
+        td {
+            border-bottom: 2px solid rgb(255, 255, 255);
+            background-color: #fff;
+            text-align: center;
         }
         
         /*
@@ -123,11 +127,11 @@
                 <li class="menu-item">
                 <a href="/"><strong>Home</strong></a></li> 
                 <li class="menu-item">
-                <a href="parking"><strong>parking</strong></a></li> 
+                <a href="parking"><strong>Parking</strong></a></li> 
                 <li class="menu-item">
-                <a href="holiday"><strong>holiday</strong></a></li>
+                <a href="holiday"><strong>Holiday</strong></a></li>
                 <li class="menu-item">
-                <a href="parking"><font color="orange"><strong>street park</strong></font></a></li> 
+                <a href="street_park"><font color="orange"><strong>Street Park</strong></font></a></li> 
             </ul>
         </div>
     </div>

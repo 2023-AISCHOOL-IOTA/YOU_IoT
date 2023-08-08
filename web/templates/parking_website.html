@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
 <head>
   <meta charset="UTF-8">
@@ -16,54 +15,53 @@
 
     /* 메인 컨테이너 */
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: flex; /* 메뉴 정렬을 위한 것 */
+      align-items: center; /* 수직 중심 항목 */
       justify-content: center;
       font-family: Arial, sans-serif;
       background-color: #f5f5f5; 
-      background-image: url('/static/main_photo.jpg');
+      background-image: url('/static/main_photo.jpg'); /* 배경 이미지 */
       background-size: cover;
       background-position: center;
       min-height: 100vh;
       position: relative;
     }
 
-    /* 위에 흰 선 */
+    /* 네비게이션 바에 대한 스타일링 */
     .navbar {
-      display: flex;
-      margin-left: 30px;
-      padding: 23px;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.925); 
-      position: absolute;
-      top: 0;
-      left: 10px;
-      right: 10px;
+      display: flex; /* 메뉴 정렬을 위한 것 */
+      align-items: center; /* 수직 중심 항목 */
+      justify-content: space-between; /* 항목을 고르게 펼침 */
+      padding: 23px; /* 네비게이션 바 주변 패딩 */
+      width: 100%; /* 전체 너비 */
+      background-color: rgba(255, 255, 255, 0.925); /* 반투명 흰색 바탕 */
+      position: absolute; /* 포지셔닝 유형 */
+      top: 0; /* 상단에 고정 */
+      left: 0; /* 수평 중심 */
     }
 
-    .menu-list {
-      list-style: none;
-      display: flex;
-      margin: 0 auto; 
-    }
-
-    .menu-item a {
-      text-decoration: none;
-      color: #000000; 
-      font-size: 20px;
-      text-align: left;
-      margin:100px 100px 100px; 
-    }
-
-    .menu-item a:hover {
-      opacity: 0.7;
+    /* 메뉴 목록 스타일링 */
+      .menu-list {
+        list-style: none; /* 기본 목록 글머리 기호 제거 */
+        display: flex; /* 메뉴 항목 정렬을 위한 Flex 디스플레이 */
+        margin: 0 auto; /* 중앙 정렬 메뉴 목록 */
       }
 
-    /* 올려두면 폰트 색상 바뀌게 하기 */
-    a:hover {
-      color : orange;
-    }
+      /* 메뉴 아이템별 스타일링 */
+      .menu-item a {
+        text-decoration: none; /* 링크에서 밑줄 제거 */
+        color: #000;
+        font-size: 20px; 
+        padding: 10px; /* 메뉴 항목 주위에 패딩 */
+        transition: opacity 0.3s ease; /* 호버에서의 부드러운 불투명도 전이 */
+        margin: 100px 100px 100px; /* 메뉴 항목 간 마진 */
+      }
+
+
+      /* 메뉴 아이템 링크에 대한 스타일링 */
+      a:hover {
+        color: orange; /* 마우스 갖다대면 텍스트 색상 변경 */
+      }
 
     /* header 스타일 */
     .header h1 {
@@ -80,8 +78,6 @@
       text-align: center;
       font-size: 25px;
       color: rgb(248, 248, 248); 
-
-
     }
 
     /* Footer 스타일 */
@@ -108,11 +104,11 @@
         <li class="menu-item">
           <a href="/"><strong>Home</strong></a></li> 
         <li class="menu-item">
-          <a href="parking"><strong>parking</strong></a></li> 
+          <a href="parking"><strong>Parking</strong></a></li> 
         <li class="menu-item">
-          <a href="holiday"><strong>holiday</strong></a></li>
+          <a href="holiday"><strong>Holiday</strong></a></li>
         <li class="menu-item">
-          <a href="street_park"><strong>street park</strong></a></li>
+          <a href="street_park"><strong>Street Park</strong></a></li>
       </ul>
     </div>
     <div class="header">
@@ -126,134 +122,4 @@
 </body>
 
 </html>
-=======
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Road Parking</title>
-    <style>
-      /* 기본 스타일 재설정 */
-      body,
-      h1,
-      p {
-        margin: 0;
-        padding: 0;
-      }
 
-      /* 메인 컨테이너 */
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        background-image: url("parking.jpg");
-        background-size: cover;
-        background-position: center;
-        min-height: 100vh;
-        position: relative;
-      }
-
-      /* Navigation */
-      .navbar {
-        display: flex;
-        justify-content: left;
-        align-items: flex-start;
-        padding: 10px;
-        width: 100%;
-        padding-left: 20px; /*메뉴 항목 왼쪽으로 이동 */
-        background-color: rgba(255, 255, 255, 0.7);
-        position: absolute;
-        top: 0;
-      }
-
-      .navbar img {
-        height: 50px;
-        margin-right: 350px;
-        margin-left: 30px;
-        width: 80px;
-        height: 70px;
-      }
-
-      .menu-list {
-        list-style: none;
-        display: flex;
-        margin-right: 20px;
-      }
-
-      .menu-item {
-        margin-left: 20px;
-      }
-
-      .menu-item a {
-        text-decoration: none;
-        color: #000000;
-        font-size: 16px;
-        padding: 5px;
-        transition: opacity 0.3s ease;
-      }
-
-      .menu-item a:hover {
-        opacity: 0.7;
-      }
-
-      /* Header 스타일 */
-      .header {
-        text-align: center;
-        margin: 100px 0 30px;
-        color: #ffffff;
-      }
-
-      .header h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
-      }
-
-      .header p {
-        font-size: 18px;
-      }
-
-      /* Footer 스타일 */
-      .footer {
-        margin-top: 50px;
-        text-align: center;
-        color: #eeeeee;
-      }
-
-      .footer p {
-        font-size: 14px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="container">
-      <div class="navbar">
-        <img src="최종 로고.png" alt="Logo" />
-        <ul class="menu-list">
-          <li class="menu-item">
-            <a href="/">Home</a>
-          </li>
-          <li class="menu-item">
-            <a href="/street_park">노상주차</a>
-          </li>
-          <li class="menu-item">
-            <a href="/holiday">무료주차</a>
-          </li>
-          <li class="menu-item">
-            <a href="/parking">유료주차</a>
-          </li>
-        </ul>
-      </div>
-      <div class="header">
-        <h1>Road Parking Website</h1>
-        <p>안녕하세요 찡긋 0_<</p>
-      </div>
-      <div class="footer">
-        <p>© 2023 Road Parking Website. All rights reserved.</p>
-      </div>
-    </div>
-  </body>
-</html>
->>>>>>> 3cb24597bfe974feb1ac8a37f4a0eef27cb456e9
