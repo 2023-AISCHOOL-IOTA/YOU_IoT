@@ -21,7 +21,7 @@ mysql_conn = mysql.connector.connect(
 @app.route("/", methods=["GET"])
 def home():
     
-    return render_template("webserver.html")
+    return render_template("parking_website.html")
 
 ##### web_table_parking
 @app.route("/parking", methods=["GET"])
@@ -39,7 +39,7 @@ def parking():
     # index.html 템플릿 렌더링하며 데이터 전달
     return render_template("CSS_parking.html", data=data)
 
-##### web_holiday_parking
+##### web_table_holiday
 @app.route("/holiday", methods=["GET"])
 def holiday():
     cursor = mysql_conn.cursor()
@@ -50,15 +50,22 @@ def holiday():
     # 커서와 연결 닫기
     # cursor.close()
     data = cursor.fetchall()
-    num1 = data[0]
     cursor.close()
 
     return render_template("CSS_holiday.html", data=data)
     
-@app.route("/servor3", methods=["GET"])
+##### web_table_street_park
+@app.route("/street_park", methods=["GET"])
 def street_park():
+    cursor = mysql_conn.cursor()
+
+    query = "SELECT * FROM street_park;"
+    cursor.execute(query)
     
-    return render_template("CSS_street_park.html")
+    street_data = cursor.fetchall()
+    cursor.close()
+
+    return render_template("CSS_street_park.html", data=street_data)
 
 if __name__ == "__main__":
-    app.run(host = "localhost", port = 8080, debug=True)
+    app.run(host = "0.0.0.0", port = 8080, debug=True)

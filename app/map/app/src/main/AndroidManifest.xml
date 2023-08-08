@@ -12,7 +12,6 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:extractNativeLibs="false"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/ic_launcher_foreground"
         android:label=" roadparKING"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -20,27 +19,31 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.roadParkng.map.ParkingListActivity"
-            android:exported="true" /> <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            android:name="com.roadParkng.home.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-        <!-- </intent-filter> -->
-<!--        네이티브 API키    -->
+
+        <activity
+            android:name="com.roadParkng.map.ParkingMapActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.roadParkng.map.StreetParkingListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.roadParkng.map.ParkingListActivity"
+            android:exported="false" />
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="a1e87b239e91b474ca20155df8be82ad" />
 
         <activity
-            android:name="com.roadParkng.map.MainActivity"
-            android:exported="false">
+            android:name="com.roadParkng.mainbtnpage.MainActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
     </application>
 

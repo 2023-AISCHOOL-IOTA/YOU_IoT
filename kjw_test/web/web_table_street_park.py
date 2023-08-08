@@ -31,12 +31,12 @@ def get_data():
     
     # 커서와 연결 닫기
     # cursor.close()
-    data = cursor.fetchall()
-    num1 = data[0]
+    street_data = cursor.fetchall()
+    num1 = street_data[0]
     cursor.close()
 
     # index.html 템플릿 렌더링하며 데이터 전달
-    return render_template("CSS_street_park.html", data=data, num1 = num1)
+    return render_template("CSS_street_park.html", data=street_data, num1 = num1)
 
 if __name__ == "__main__":
     app.run(host = "0.0.0.0", port = 8080, debug=True)

@@ -30,7 +30,7 @@
 - 올바르게 주차 구역에 주차함으로써 주변 사람들과의 갈등을 예방하고, 주차 위반과 관련된 사고와 불편을 줄일 수 있음
 
 ## 📋일정관리
-<a href="https://www.notion.so/IoT-AI-7713450f67c44943b1d8b56c25b82aa2"><image src="https://github.com/jung-yeon/ai_first_project/assets/77679326/6f3bd501-0169-4916-a296-8df88cd16d39" height="50"></a></br>
+<a href="https://www.notion.so/IoT-AI-7713450f67c44943b1d8b56c25b82aa2"><image src="https://github.com/jung-yeon/ai_first_project/assets/77679326/6f3bd501-0169-4916-a296-8df88cd16d39" height="200"></a></br>
 <p>💹 간트차트 </p>
 <a><image src="https://github.com/2023-AISCHOOL-IOTA/YOU_IoT/assets/77679326/5383f6b9-daea-410a-9642-168b435211b6" height="400"></a>
 <hr>
