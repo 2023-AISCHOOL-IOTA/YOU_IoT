@@ -1,9 +1,14 @@
 package com.roadParkng.dto;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 
-public class ParkingDTO {
+public class ParkingDTO implements Parcelable {
     @SerializedName("id")
     private String id;
 
@@ -77,4 +82,40 @@ public class ParkingDTO {
     public void setId(String id) {
         this.id = id;
     }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(address);
+        dest.writeInt(spaces);
+        dest.writeString(classes);
+        dest.writeString(parkname);
+        dest.writeString(parktype);
+    }
+
+    protected ParkingDTO(Parcel in) {
+        id = in.readString();
+        address = in.readString();
+        spaces = in.readInt();
+        classes = in.readString();
+        parkname = in.readString();
+        parktype = in.readString();
+    }
+
+    public static final Creator<ParkingDTO> CREATOR = new Creator<ParkingDTO>() {
+        @Override
+        public ParkingDTO createFromParcel(Parcel in) {
+            return new ParkingDTO(in);
+        }
+
+        @Override
+        public ParkingDTO[] newArray(int size) {
+            return new ParkingDTO[size];
+        }
+    };
 }

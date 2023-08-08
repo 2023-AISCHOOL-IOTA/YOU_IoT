@@ -14,6 +14,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.map.R;
 import com.roadParkng.dto.StreetParkingDTO;
+import com.roadParkng.mainbtnpage.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,7 +28,7 @@ public class StreetParkingListActivity extends AppCompatActivity {
     private static RequestQueue requestQueue;
     ListView listView;
     private static final String TAG = "MAIN";
-    private String URL = "http://nayeho.ngrok.io/street_park";
+
     List<String> addressList = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
@@ -35,6 +36,9 @@ public class StreetParkingListActivity extends AppCompatActivity {
     //Gson안돼요.... 해결 나중에 하자
 //    Gson gson = new Gson();
     List<StreetParkingDTO> streetParkingList = new ArrayList<>();
+
+    MainActivity mainActivity = new MainActivity();
+    private String URL = mainActivity.getURL()+"street_park";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

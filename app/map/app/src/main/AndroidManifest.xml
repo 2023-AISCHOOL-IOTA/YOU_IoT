@@ -12,13 +12,22 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:extractNativeLibs="false"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/ic_launcher_foreground"
         android:label=" roadparKING"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Map"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name="com.roadParkng.home.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
         <activity
             android:name="com.roadParkng.map.ParkingMapActivity"
             android:exported="false" />
@@ -27,23 +36,14 @@
             android:exported="false" />
         <activity
             android:name="com.roadParkng.map.ParkingListActivity"
-            android:exported="false" /> <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- 네이티브 API키 -->
+            android:exported="false" />
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="a1e87b239e91b474ca20155df8be82ad" />
 
         <activity
-            android:name="com.roadParkng.mainbtnpage.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name="com.roadParkng.mainbtnpage.MainActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
