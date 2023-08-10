@@ -1,14 +1,11 @@
 #18번 핀으로 laser
 import RPi.GPIO as GPIO
 
+laserPin=18
+
 def laser_on(pin):
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, True)
 
-def laser_off(pin):
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(pin, GPIO.OUT)
-    GPIO.cleanup(pin)
-
-laser_on(18) # led 점등
+laser_on(laserPin) # led 점등

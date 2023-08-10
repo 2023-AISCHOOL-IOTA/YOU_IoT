@@ -1,10 +1,12 @@
 #pip install smbus 이거 먼저 해야됨
 import time
 import I2C_LCD_driver
+import pymysql
 
 # LCD 초기화
 mylcd = I2C_LCD_driver.lcd()
 #i2c 연결이라서 SDA핀, SCL핀 연결해야됨
+
 try:
     while True:
         # 현재 시간 가져오기
