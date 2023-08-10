@@ -3,6 +3,26 @@
 <head>
     <title>Street Park</title>
     <style>
+        /*
+        1. border : 바뀌는 거 없음
+        2. box-shadow : 테이블 뒤에 음영..?이랑 색상이 달라짐
+        border-collapse : () => ()안에는 separte, collapse,initial, inherit 들어감
+         - separate : 표의 전체 테두리가 생기고 각 컬럼 사이 선이 있음
+                      속성값이 separate일 때, 간격의 크기는 border-spacing 속성으로 정함
+         - collapse : 각 인덱스 사이에 선이 진짜 조금 더 굵어지고 각 컬럼 사이의 선이 없음
+         - initial : 기본값으로 설정합니다. => 실험 결과 separte랑 똑같아 보임
+         - inherit : 부모 요소의 속성값을 상속받습니다.
+
+        3. border-radius => 테이블 모서리 부분이 둥글게 변함
+         
+        4. overflow :
+         - visible : 기본 값이며 값이 넘칠 경우 범위 밖으로 보여짐
+         - hidden : 값이 넘칠 경우 잘려서 보이지 않음
+         - scrooll : 스크롤 바가 추가 되어 스크롤 가능
+         - auto : 양에 따라서 스크롤 바를 추가할지 자동으로 결정
+           우리는 hidden으로 해도 잘리진 않음 
+         */
+
         /* 전체 페이지 배경, 간격, 글꼴에 대한 스타일링 */
         body {
             padding: 1.5em;
@@ -46,25 +66,6 @@
             color: orange; /* 마우스 갖다대면 텍스트 색상 변경 */
         }
         
-        /*
-        1. border : 바뀌는 거 없음
-        2. box-shadow : 테이블 뒤에 음영..?이랑 색상이 달라짐
-        border-collapse : () => ()안에는 separte, collapse,initial, inherit 들어감
-         - separate : 표의 전체 테두리가 생기고 각 컬럼 사이 선이 있음
-                      속성값이 separate일 때, 간격의 크기는 border-spacing 속성으로 정함
-         - collapse : 각 인덱스 사이에 선이 진짜 조금 더 굵어지고 각 컬럼 사이의 선이 없음
-         - initial : 기본값으로 설정합니다. => 실험 결과 separte랑 똑같아 보임
-         - inherit : 부모 요소의 속성값을 상속받습니다.
-
-        3. border-radius => 테이블 모서리 부분이 둥글게 변함
-         
-        4. overflow :
-         - visible : 기본 값이며 값이 넘칠 경우 범위 밖으로 보여짐
-         - hidden : 값이 넘칠 경우 잘려서 보이지 않음
-         - scrooll : 스크롤 바가 추가 되어 스크롤 가능
-         - auto : 양에 따라서 스크롤 바를 추가할지 자동으로 결정
-           우리는 hidden으로 해도 잘리진 않음 
-         */
 
         /* 데이터 테이블에 대한 스타일링 */
         table {
@@ -83,12 +84,13 @@
             background-color: #dde8e8;
             text-align: center;
             padding: 10px;
+
         }
         
         /* 테이블 헤더 행에 대한 스타일 */
         thead {
             font-weight: bold;
-            color: #fff;
+            color: #000000;
             background: #73685d;
         }
 
@@ -105,17 +107,99 @@
             text-align: center;
         }
         
+
         /*
         border-bottom : 셀 테두리의 하단을 일괄적으로 바꿈
         border-bootom-xx : xx에는 width, style, color을 따로 넣을 수 있음
         backgorund : 젤 위 컬럼(1부터6까지)를 제외하고 색을 바꿈
         */
-        td {
-            border-bottom: 2px solid rgba(74, 17, 230, 0.1);
-            background: #ffffff;
-            text-align: center;
-        }
-
+ 
+            /* 버튼 꾸미기 */
+            .center-button {
+                position: relative;
+                bottom: 50px; /* 공간 만들기 */
+                text-align: center;
+                margin-top: 80px;
+            }
+    
+            /* Page 꾸미는 것 */
+            .page{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            .pagination-container {
+                display: inline-felx;
+                align-items: center;
+                margin-top: 1em;
+            }
+    
+            .pagination li {
+                display: inline;
+                text-align: center;
+            }
+    
+            /* 숫자들에 대한 스타일 지정 */
+            .pagination a {
+                float: left;
+                display: block;
+                font-size: 14px;
+                text-decoration: none;
+                padding: 5px 12px;
+                color: #96a0ad;
+                line-height: 1.5;
+            }
+            
+            .first{
+                margin-right: 15px;
+            }
+    
+            .last{
+                margin-left: 15px;
+            }
+    
+            .first:hover, .last:hover, .left:hover, .right:hover{
+                color: #2e9cdf;
+            }
+    
+            .pagination a.active {
+                cursor: default;
+                color: #ffffff;
+            }
+    
+            .pagination a:active {
+                outline: none;
+            }
+    
+            .modal .num {
+                margin-left: 3px;
+                padding: 0;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                -moz-border-radius: 100%;
+                -webkit-border-radius: 100%;
+                border-radius: 100%;
+            }
+    
+            .modal .num:hover {
+                background-color: #2e9cdf;
+                color: #ffffff;
+            }
+    
+            .modal .num.active, .modal .num:active {
+                background-color: #2e9cdf;
+                cursor: pointer;
+            }
+    
+            .arrow-left {
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid blue;
+            }
     </style>
 </head>
 <body>
@@ -135,25 +219,81 @@
             </ul>
         </div>
     </div>
+
     <table>
-        <tr>
-            <th>street_id</th>
-            <th>road_n</th>
-            <th>start_p</th>
-            <th>end_p</th>
-            <th>permit_a</th>
-            <th>distance</th>
-            <th>permit_t</th>
-            <th>holiday</th>
-            <th>restrict_c</th>
-        </tr>
-        {% for item in data %}
-        <tr>
-            {% for i in item %}
-            <td>{{ i }}</td>
+        <thead>
+            <tr>
+                <th>노상주차ID</th>
+                <th>도로명</th>
+                <th>시작점</th>
+                <th>종착점</th>
+                <th>편/양측</th>
+                <th>주차 거리</th>
+                <th>허용 시간</th>
+                <th>공휴일</th>
+                <th>1.5톤 제한차량 허용</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in data %}
+            <tr>
+                {% for i in item %}
+                <td>{{ i }}</td>
+                {% endfor %}
+            </tr>
             {% endfor %}
-        </tr>
-        {% endfor %}
+        </tbody>
     </table>
+
+    <div class="pagination-container page">
+        <ul class="pagination modal">
+        </ul>
+    </div>
+
+    <script>
+        window.onload = function () {
+            let dataRows = Array.from(document.querySelectorAll('tbody tr'));
+            let container = document.querySelector('.pagination.modal');
+            let itemsPerPage = 20;
+
+            function createPagination(dataRows, container, itemsPerPage) {
+                let currentPage = 0;
+
+                function changeVisibility(from, to) {
+                    dataRows.forEach((row, index) => {
+                        row.style.display = (index >= from && index < to) ? 'table-row' : 'none';
+                    });
+                }
+
+                function updatePaginationButtons() {
+                    let totalPages = Math.ceil(dataRows.length / itemsPerPage);
+
+                    let paginationHTML = '';
+                    for (let i = 0; i < totalPages; i++) {
+                        const fromIndex = i * itemsPerPage;
+                        const toIndex = Math.min(fromIndex + itemsPerPage, dataRows.length);
+                        paginationHTML += `<li><a href="#" class="num ${currentPage === i ? 'active' : ''}" data-from="${fromIndex}" data-to="${toIndex}">${i + 1}</a></li>`;
+                    }
+
+                    container.innerHTML = paginationHTML;
+                }
+
+                container.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('num')) {
+                        e.preventDefault();
+                        currentPage = parseInt(e.target.textContent) - 1;
+                        changeVisibility(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+                        updatePaginationButtons();
+                    }
+                });
+
+                updatePaginationButtons();
+                changeVisibility(0, itemsPerPage);
+            }
+
+            createPagination(dataRows, container, itemsPerPage);
+        };
+    </script>
 </body>
 </html>

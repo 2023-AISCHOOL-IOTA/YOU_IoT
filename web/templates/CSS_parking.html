@@ -3,141 +3,205 @@
 <head>
     <title>Parking</title>
     <style>
-    /*
-    1. border : 바뀌는 거 없음
-    2. box-shadow : 테이블 뒤에 음영..?이랑 색상이 달라짐
-    border-collapse : () => ()안에는 separte, collapse,initial, inherit 들어감
-     - separate : 표의 전체 테두리가 생기고 각 컬럼 사이 선이 있음
-                  속성값이 separate일 때, 간격의 크기는 border-spacing 속성으로 정함
-     - collapse : 각 인덱스 사이에 선이 진짜 조금 더 굵어지고 각 컬럼 사이의 선이 없음
-     - initial : 기본값으로 설정합니다. => 실험 결과 separte랑 똑같아 보임
-     - inherit : 부모 요소의 속성값을 상속받습니다.
-
-    3. border-radius => 테이블 모서리 부분이 둥글게 변함
-    4. overflow :
-     - visible : 기본 값이며 값이 넘칠 경우 범위 밖으로 보여짐
-     - hidden : 값이 넘칠 경우 잘려서 보이지 않음
-     - scrooll : 스크롤 바가 추가 되어 스크롤 가능
-     - auto : 양에 따라서 스크롤 바를 추가할지 자동으로 결정
-       우리는 hidden으로 해도 잘리진 않음 
-     */
-
-        /* 전체 페이지 배경, 간격, 글꼴에 대한 스타일링 */
-        body {
-            padding: 1.5em;
-            background: #f5f5f5; 
-            margin: 0; 
-            font-family: Arial, sans-serif; 
-        }
-
-        /* 네비게이션 바에 대한 스타일링 */
-        .navbar {
-            display: flex; /* 메뉴 정렬을 위한 것 */
-            align-items: center; /* 수직 중심 항목 */
-            justify-content: space-between; /* 항목을 고르게 펼침 */
-            padding: 23px; /* 네비게이션 바 주변 패딩 */
-            width: 100%; /* 전체 너비 */
-            background-color: rgba(255, 255, 255, 0.925); /* 반투명 흰색 바탕 */
-            position: absolute; /* 포지셔닝 유형 */
-            top: 0; /* 상단에 고정 */
-            left: 0; /* 수평 중심 */
-        }
-
-        /* 메뉴 목록 스타일링 */
-        .menu-list {
-            list-style: none; /* 기본 목록 글머리 기호 제거 */
-            display: flex; /* 메뉴 항목 정렬을 위한 Flex 디스플레이 */
-            margin: 0 auto; /* 중앙 정렬 메뉴 목록 */
-        }
-
-        /* 메뉴 아이템별 스타일링 */
-        .menu-item a {
-            text-decoration: none; /* 링크에서 밑줄 제거 */
-            color: #000;
-            font-size: 20px; 
-            padding: 10px; /* 메뉴 항목 주위에 패딩 */
-            transition: opacity 0.3s ease; /* 호버에서의 부드러운 불투명도 전이 */
-            margin: 100px 100px 100px; /* 메뉴 항목 간 마진 */
-        }
-
-        /* 메뉴 아이템 링크에 대한 스타일링 */
-        a:hover {
-            color: orange; /* 마우스 갖다대면 텍스트 색상 변경 */
-        }
-
-
-        /* 데이터 테이블에 대한 스타일링 */
-        table {
-            border: 1px solid #122aa1;
-            font-size: 0.9em;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-            width: 100%;
-            border-collapse: separate;
-            border-radius: 5px;
-            overflow: auto;
-            margin-top: 50px;
-        }
-
-        /* 데이터 헤더 셀에 대한 스타일링 */
-        th {
-            background-color: #dde8e8;
-            text-align: center;
-            padding: 10px;
-        }
-
-        /* 테이블 헤더 행에 대한 스타일 */
-        thead {
-            font-weight: bold;
-            color: #fff;
-            background: #73685d;
-        }
-
-        /* 테이블 데이터 셀 및 헤더 셀에 대한 스타일링 */
-        td, th {
-            padding: 1em 0.5em;
-            vertical-align: middle;
-        }
-
-        /* 테이블 데이터 셀에 대한 스타일링 */
-        td {
-            border-bottom: 2px solid rgb(255, 255, 255);
-            background-color: #fff;
-            text-align: center;
-        }
-
-        /* 버튼 꾸미기 */
-        .center-button {
-            position: relative;
-            bottom: 50px; /* 공간 만들기 */
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        /* 현재 페이지 번호 */
-        .currentPage {
-            color: black; /* 기본 색상 */
-            font-weight: bold;
-        }
-
-        /* 클릭한 페이지 번호의 색상 변경 */
-        .center-button.clicked .currentPage {
-            color: orange; /* 원하는 색상으로 변경 */
-        }
-
-
-    </style>
+        /*
+        1. border : 바뀌는 거 없음
+        2. box-shadow : 테이블 뒤에 음영..?이랑 색상이 달라짐
+        border-collapse : () => ()안에는 separte, collapse,initial, inherit 들어감
+         - separate : 표의 전체 테두리가 생기고 각 컬럼 사이 선이 있음
+                      속성값이 separate일 때, 간격의 크기는 border-spacing 속성으로 정함
+         - collapse : 각 인덱스 사이에 선이 진짜 조금 더 굵어지고 각 컬럼 사이의 선이 없음
+         - initial : 기본값으로 설정합니다. => 실험 결과 separte랑 똑같아 보임
+         - inherit : 부모 요소의 속성값을 상속받습니다.
+    
+        3. border-radius => 테이블 모서리 부분이 둥글게 변함
+        4. overflow :
+         - visible : 기본 값이며 값이 넘칠 경우 범위 밖으로 보여짐
+         - hidden : 값이 넘칠 경우 잘려서 보이지 않음
+         - scrooll : 스크롤 바가 추가 되어 스크롤 가능
+         - auto : 양에 따라서 스크롤 바를 추가할지 자동으로 결정
+           우리는 hidden으로 해도 잘리진 않음 
+         */
+    
+            /* 전체 페이지 배경, 간격, 글꼴에 대한 스타일링 */
+            body {
+                padding: 1.5em;
+                background: #f5f5f5; 
+                margin: 0; 
+                font-family: Arial, sans-serif; 
+            }
+    
+            /* 네비게이션 바에 대한 스타일링 */
+            .navbar {
+                display: flex; /* 메뉴 정렬을 위한 것 */
+                align-items: center; /* 수직 중심 항목 */
+                justify-content: space-between; /* 항목을 고르게 펼침 */
+                padding: 23px; /* 네비게이션 바 주변 패딩 */
+                width: 100%; /* 전체 너비 */
+                background-color: rgba(255, 255, 255, 0.925); /* 반투명 흰색 바탕 */
+                position: absolute; /* 포지셔닝 유형 */
+                top: 0; /* 상단에 고정 */
+                left: 0; /* 수평 중심 */
+            }
+    
+            /* 메뉴 목록 스타일링 */
+            .menu-list {
+                list-style: none; /* 기본 목록 글머리 기호 제거 */
+                display: flex; /* 메뉴 항목 정렬을 위한 Flex 디스플레이 */
+                margin: 0 auto; /* 중앙 정렬 메뉴 목록 */
+            }
+    
+            /* 메뉴 아이템별 스타일링 */
+            .menu-item a {
+                text-decoration: none; /* 링크에서 밑줄 제거 */
+                color: #000;
+                font-size: 20px; 
+                padding: 10px; /* 메뉴 항목 주위에 패딩 */
+                transition: opacity 0.3s ease; /* 호버에서의 부드러운 불투명도 전이 */
+                margin: 100px 100px 100px; /* 메뉴 항목 간 마진 */
+            }
+    
+            /* 메뉴 아이템 링크에 대한 스타일링 */
+            a:hover {
+                color: orange; /* 마우스 갖다대면 텍스트 색상 변경 */
+            }
+    
+    
+            /* 데이터 테이블에 대한 스타일링 */
+            table {
+                border: 1px solid #122aa1;
+                font-size: 0.9em;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+                width: 100%;
+                border-collapse: separate;
+                border-radius: 5px;
+                overflow: auto;
+                margin-top: 50px;
+            }
+    
+            /* 데이터 헤더 셀에 대한 스타일링 */
+            th {
+                background-color: #dde8e8;
+                text-align: center;
+                padding: 10px;
+            }
+    
+            /* 테이블 헤더 행에 대한 스타일 */
+            thead {
+                font-weight: bold;
+                color: #000000;
+                background: #73685d;
+            }
+    
+            /* 테이블 데이터 셀 및 헤더 셀에 대한 스타일링 */
+            td, th {
+                padding: 1em 0.5em;
+                vertical-align: middle;
+            }
+    
+            /* 테이블 데이터 셀에 대한 스타일링 */
+            td {
+                border-bottom: 2px solid rgb(255, 255, 255);
+                background-color: #fff;
+                text-align: center;
+            }
+    
+            /* 버튼 꾸미기 */
+            .center-button {
+                position: relative;
+                bottom: 50px; /* 공간 만들기 */
+                text-align: center;
+                margin-top: 80px;
+            }
+    
+            /* Page 꾸미는 것 */
+            .page{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            .pagination-container {
+                display: inline-felx;
+                align-items: center;
+                margin-top: 1em;
+            }
+    
+            .pagination li {
+                display: inline;
+                text-align: center;
+            }
+    
+            /* 숫자들에 대한 스타일 지정 */
+            .pagination a {
+                float: left;
+                display: block;
+                font-size: 14px;
+                text-decoration: none;
+                padding: 5px 12px;
+                color: #96a0ad;
+                line-height: 1.5;
+            }
+            
+            .first{
+                margin-right: 15px;
+            }
+    
+            .last{
+                margin-left: 15px;
+            }
+    
+            .first:hover, .last:hover, .left:hover, .right:hover{
+                color: #2e9cdf;
+            }
+    
+            .pagination a.active {
+                cursor: default;
+                color: #ffffff;
+            }
+    
+            .pagination a:active {
+                outline: none;
+            }
+    
+            .modal .num {
+                margin-left: 3px;
+                padding: 0;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                -moz-border-radius: 100%;
+                -webkit-border-radius: 100%;
+                border-radius: 100%;
+            }
+    
+            .modal .num:hover {
+                background-color: #2e9cdf;
+                color: #ffffff;
+            }
+    
+            .modal .num.active, .modal .num:active {
+                background-color: #2e9cdf;
+                cursor: pointer;
+            }
+    
+            .arrow-left {
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid blue;
+            }
+        </style>
 </head>
-<body>
-    <!-- 스크롤바 제거하기 -->
-    <body style="overflow-x: hidden;">
 
+<body style="overflow-x: hidden;">
     <div class="container">
         <div class="navbar">
             <ul class="menu-list">
                 <li class="menu-item">
                     <a href="/"><strong>Home</strong></a></li>
                 <li class="menu-item">
-                    <a href="street_park"><font color="orange"><strong>Parking</strong></font></a></li> 
+                    <a href="street_park"><font color="orange"><strong>Parking</strong></font></a></li>
                 <li class="menu-item">
                     <a href="holiday"><strong>Holiday</strong></a></li>
                 <li class="menu-item">
@@ -146,96 +210,76 @@
         </div>
     </div>
 
-    <!-- 데이터 테이블 -->
     <table>
-        <tr>
-            <th>주차장ID</th>
-            <th>주차장 주소</th>
-            <th>주차 공간</th>
-            <th>공/민영</th>
-            <th>주차장명</th>
-            <th>주차장 유형</th>
-        </tr>
-        {% for item in data %}
-        <tr>
-            {% for i in item %}
-            <td>{{ i }}</td>
+        <thead>
+            <tr>
+                <th>주차장ID</th>
+                <th>주차장 주소</th>
+                <th>주차 공간</th>
+                <th>공/민영</th>
+                <th>주차장명</th>
+                <th>주차장 유형</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                {% for i in item %}
+                <td>{{ i }}</td>
+                {% endfor %}
+            </tr>
             {% endfor %}
-        </tr>
-        {% endfor %}
+        </tbody>
     </table>
 
-    <!-- 페이지 설정 컨트롤 -->
-    <div class="center-button">
-        <button id="prevPage">이전</button>
-        <span class="currentPage" id="page1">1</span>
-        <span class="currentPage" id="page2">2</span>
-        <span class="currentPage" id="page3">3</span>
-        <span class="currentPage" id="page4">4</span>
-        <span class="currentPage" id="page5">5</span>
-        <button id="nextPage">다음</button>
-
+    <div class="pagination-container page">
+        <ul class="pagination modal">
+        </ul>
     </div>
 
-
-    <!-- 페이지 설정용 자바스크립트 -->
     <script>
-        // 현재 페이지 번호 색상을 변경하기 위한 자바스크립트
-        const currentPageSpans = document.querySelectorAll('.currentPage');
-        const centerButton = document.querySelector('.center-butto');
+        window.onload = function () {
+            let dataRows = Array.from(document.querySelectorAll('tbody tr'));
+            let container = document.querySelector('.pagination.modal');
+            let itemsPerPage = 20;
 
-        currentPageSpans.forEach(span => {
-            span.addEventListener('click', () => {
-                currentPageSpans.forEach(otherSpan => {
-                    otherSpan.classList.remove('clicked');
+            function createPagination(dataRows, container, itemsPerPage) {
+                let currentPage = 0;
+
+                function changeVisibility(from, to) {
+                    dataRows.forEach((row, index) => {
+                        row.style.display = (index >= from && index < to) ? 'table-row' : 'none';
+                    });
+                }
+
+                function updatePaginationButtons() {
+                    let totalPages = Math.ceil(dataRows.length / itemsPerPage);
+
+                    let paginationHTML = '';
+                    for (let i = 0; i < totalPages; i++) {
+                        const fromIndex = i * itemsPerPage;
+                        const toIndex = Math.min(fromIndex + itemsPerPage, dataRows.length);
+                        paginationHTML += `<li><a href="#" class="num ${currentPage === i ? 'active' : ''}" data-from="${fromIndex}" data-to="${toIndex}">${i + 1}</a></li>`;
+                    }
+
+                    container.innerHTML = paginationHTML;
+                }
+
+                container.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('num')) {
+                        e.preventDefault();
+                        currentPage = parseInt(e.target.textContent) - 1;
+                        changeVisibility(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+                        updatePaginationButtons();
+                    }
                 });
-                span.classList.add('clicked');
-            });
-        });
 
-        const table = document.querySelector('table');
-        const dataRows = Array.from(table.querySelectorAll('tr')).slice(1);
-        const itemsPerPage = 20;
-        let currentPage = 1;
-    
-        // 페이지 설정 컨트롤 가져오기
-        const prevPageButton = document.getElementById('prevPage');
-        const nextPageButton = document.getElementById('nextPage');
-        const currentPageSpan = document.getElementById('currentPage');
-    
-        // 현재 페이지를 기준으로 테이블 업데이트
-        function updateTable() {
-            const startIdx = (currentPage - 1) * itemsPerPage;
-            const endIdx = startIdx + itemsPerPage;
-    
-            dataRows.forEach((row, index) => {
-                row.style.display = (index >= startIdx && index < endIdx) ? 'table-row' : 'none';
-            });
-    
-            currentPageSpan.textContent = currentPage;
-        }
-    
-        // 특정 페이지 이동
-        function goToPage(page) {
-            currentPage = page;
-            updateTable();
-        }
-    
-        // 페이지 설정 버튼에 대한 수신
-        prevPageButton.addEventListener('click', () => {
-            if (currentPage > 1) {
-                goToPage(currentPage - 1);
+                updatePaginationButtons();
+                changeVisibility(0, itemsPerPage);
             }
-        });
-    
-        nextPageButton.addEventListener('click', () => {
-            if (currentPage < Math.ceil(dataRows.length / itemsPerPage)) {
-                goToPage(currentPage + 1);
-            }
-        });
 
-        // 테이블 초기 업데이트
-        updateTable();
+            createPagination(dataRows, container, itemsPerPage);
+        };
     </script>
 </body>
 </html>
