@@ -27,11 +27,31 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/findParkMapBtn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="주차장 찾기"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            tools:layout_editor_absoluteY="0dp" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/findStreetParkMapBtn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="노상주차 공간 찾기"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            tools:layout_editor_absoluteY="0dp" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
     <net.daum.mf.map.api.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:layout_editor_absoluteX="31dp" />

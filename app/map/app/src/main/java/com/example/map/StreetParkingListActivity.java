@@ -13,6 +13,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dto.StreetParkingDTO;
+import com.example.list.ParkingListSingleton;
+import com.example.list.StreetParkListSingleton;
 import com.example.mainbtnpage.MainActivity;
 
 import org.json.JSONArray;
@@ -95,7 +97,7 @@ public class StreetParkingListActivity extends AppCompatActivity {
                     streetParkingList.add(streetParking);
                     addressList.add("도로명 주소  : " + roadName + '\n'+ "시작시점 - 끝지점  : " + startPoint + " - " + endPoint);
                 }
-
+                StreetParkListSingleton.getInstance().setStreetparkingList(streetParkingList);
                 // 어댑터에 데이터 변경을 알림
                 adapter.notifyDataSetChanged();
             } catch (JSONException | NullPointerException e) {
