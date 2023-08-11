@@ -16,7 +16,5 @@ def turn_on_laser_level():
 def turn_off_laser_level():
     GPIO.output(RELAY_PIN, GPIO.HIGH)  # HIGH 신호를 출력하여 릴레이 스위치를 끕니다.
 
-# 레이저 레벨기를 끄기
-print("Turning off the laser level.")
 turn_off_laser_level()
 time.sleep(1)
