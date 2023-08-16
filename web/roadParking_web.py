@@ -11,21 +11,22 @@ app.config["MYSQL_PASSWORD"] = "aishcool3"  # MySQL 비밀번호
 app.config["MYSQL_DB"] = "Insa4_IOTA_hacksim_3"  # 사용할 데이터베이스 이름
 
 mysql_conn = mysql.connector.connect(
-    host = app.config["MYSQL_HOST"],
-    user = app.config["MYSQL_USER"],
-    password = app.config["MYSQL_PASSWORD"],
-    database = app.config["MYSQL_DB"],
-    port = 3307
+    host=app.config["MYSQL_HOST"],
+    user=app.config["MYSQL_USER"],
+    password=app.config["MYSQL_PASSWORD"],
+    database=app.config["MYSQL_DB"],
+    port=3307,
 )
 
 # 커서 객체 생성
 cursor = mysql_conn.cursor()
 
+
 # 라우트 정의: 데이터베이스에서 값을 가져와 JSON 응답으로 내보냅니다.
 @app.route("/", methods=["GET"])
 def home():
-    
     return render_template("parking_website.html")
+
 
 ##### web_table_parking
 @app.route("/parking", methods=["GET"])
@@ -36,12 +37,13 @@ def parking():
     # 예시로 모든 레코드를 조회하고 결과를 리스트로 만들어 JSON으로 반환합니다.
     query = "SELECT * FROM parking;"  # your_table_name에는 사용할 테이블 이름을 넣으세요.
     cursor.execute(query)
-    
+
     data = cursor.fetchall()
     cursor.close()
 
     # index.html 템플릿 렌더링하며 데이터 전달
     return render_template("CSS_parking.html", data=data)
+
 
 ##### web_table_holiday
 @app.route("/holiday", methods=["GET"])
@@ -50,13 +52,14 @@ def holiday():
 
     query = "SELECT * FROM holiday;"
     cursor.execute(query)
-    
+
     # 커서와 연결 닫기
     data = cursor.fetchall()
     cursor.close()
 
     return render_template("CSS_holiday.html", data=data)
-    
+
+
 ##### web_table_street_park
 @app.route("/street_park", methods=["GET"])
 def street_park():
@@ -64,7 +67,7 @@ def street_park():
 
     query = "SELECT * FROM street_park;"
     cursor.execute(query)
-    
+
     street_data = cursor.fetchall()
     cursor.close()
 
@@ -74,6 +77,7 @@ def street_park():
 ##### parkingJson
 @app.route("/parkingJson", methods=["GET"])
 def get_parkingDataJson():
+    cursor = mysql_conn.cursor()
     sql = "select * from parking"
     cursor.execute(sql)
 
@@ -96,6 +100,7 @@ def get_parkingDataJson():
 ##### holidayJson
 @app.route("/holidayJson", methods=["GET"])
 def get_holidayDataJson():
+    cursor = mysql_conn.cursor()
     sql = "select * from holiday"
     cursor.execute(sql)
     data = cursor.fetchall()
@@ -105,7 +110,8 @@ def get_holidayDataJson():
 
 ##### street_ParkJson
 @app.route("/street_parkJson", methods=["GET"])
-def get_street_parkDataJson() :
+def get_street_parkDataJson():
+    cursor = mysql_conn.cursor()
     sql = "select * from street_park"
     cursor = mysql_conn.cursor()
     cursor.execute(sql)
@@ -114,15 +120,17 @@ def get_street_parkDataJson() :
     columns = [column[0] for column in cursor.description]
     for row in cursor.fetchall():
         row_data = dict(zip(columns, row))
-        street_id = row_data.pop('street_id')  # parkingID를 key로 사용하므로 따로 빼줌
+        street_id = row_data.pop("street_id")  # parkingID를 key로 사용하므로 따로 빼줌
         data_street.append({street_id: row_data})
     # 커서 닫기
     cursor.close()
-    
+
     # JSON 출력
-    return Response(json.dumps(data_street, ensure_ascii=False), content_type="application/json; charset=utf-8",)
+    return Response(
+        json.dumps(data_street, ensure_ascii=False),
+        content_type="application/json; charset=utf-8",
+    )
+
 
 if __name__ == "__main__":
-    app.run(host = "0.0.0.0", port = 8080, debug=True)
-
-    
+    app.run(host="0.0.0.0", port=8050, debug=True)
