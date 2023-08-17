@@ -70,43 +70,48 @@
       -webkit-text-stroke: 2px black;
       text-align: center;
       top: 30%;
-      left: 30%;
+      width: 100%;
       position: absolute;
     }
 
     .header p {
-      position: relative;
+      position: relative ;
       top: -150px;
+      width: 100%;
       text-align: center;
       font-size: 25px;
       color: rgb(248, 248, 248); 
     }
 
+    /* 추가코드 시작 content */
 
-    /* 스크롤 동작 추가 */
-    .content.hidden,
-    .example-section.hidden {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    /* 추가된 내용의 스타일 */
+    /* 메인 컨테이너 밑에 사진 넣는 클래스 */
     .content {
-      padding: 20px;
-      text-align: center;
+      width : 100%;
+      height : 300px;
       background-color: black;
-      position: absolute;
-      width: 100%;
-      color: white;
     }
 
-    .content img {
-      max-width: 100%;
-      height: auto;
-      position: relative;
-      object-fit: cover;
+    /* 메인 컨테이너 밑에 사진 넣는 클래스 */
+    .content_mirror {
+      width : 100%;
+      height : 450px;
+      background-color: black;
     }
+  
+    .content1 {
+      float: left;
+      color: rgb(248, 248, 248);
+      margin-left : 20px;
+    }
+
+    .content2 {
+      float: right;
+      color: rgb(248, 248, 248);
+      margin-right : 20px;
+    }
+
+    /* 추가코드 끝 content */
 
     /* Footer 스타일 */
     .footer {
@@ -120,11 +125,6 @@
       text-align: center;
       background-color: black;
       padding: 10px 0;
-    }
-
-    /* 스크롤 동작 추가 */
-    .content.hidden {
-      display: none;
     }
 
     /* 이미지 스타일링 */
@@ -182,6 +182,28 @@
         <p>Road Parking은 노상 주차가 가능한 공간과 시간대를 시각적으로 보여주는 서비스입니다.</p>
     </div>
 
+
+    <!-- 추가코드 content -->
+    <div class="content">
+      <div class="content1">
+        <img src="/static/naver.png"/>
+      </div>
+      <div class="content1">
+        <h1>naver</h1>
+      </div>
+    </div>
+  
+    <div class="content_mirror">
+      <div class="content2">
+        <img src="/static/google.png"/>
+      </div>
+      <div class="content2">
+        <h1>Google</h1>
+      </div>
+    </div>
+    <!-- 추가코드 content -->
+  
+
     <!-- 첫 번째 예시 -->
     <div class="example-section animation-triggered">
         <img src="/static/map.png" width="500" height="300" class="example-image">
@@ -194,6 +216,8 @@
         <p class="example-description">두 번째 예시 설명입니다.</p>
     </div>
 
+
+    
     <!-- 푸터 -->
     <div class="footer">
         <p>© 2023 Road Parking Website. All rights reserved.</p>
