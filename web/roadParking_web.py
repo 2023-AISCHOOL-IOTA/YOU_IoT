@@ -24,6 +24,7 @@ cursor = mysql_conn.cursor()
 # 원하는 데이터 갯수만큼 보이게 하는 변수
 # per_page = 20
 
+
 # 라우트 정의: 데이터베이스에서 값을 가져와 JSON 응답으로 내보냅니다.
 @app.route("/", methods=["GET"])
 def home():
