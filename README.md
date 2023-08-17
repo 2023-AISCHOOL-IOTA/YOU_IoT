@@ -39,5 +39,12 @@
 ## 시스템 아키텍처
 ![스크린샷 2023-07-27 152005](https://github.com/2023-AISCHOOL-IOTA/YOU_IoT/assets/77679326/588f1620-14c0-4a39-82ea-89db37eb6dda)
 
+<hr>
+
+## yoloV5 설치
+
+<a href="https://github.com/ultralytics/yolov5">딥러닝 학습 모델 yoloV5설치 후 사용해야함</a>
+
+
 
 
