@@ -21,11 +21,8 @@ mysql_conn = mysql.connector.connect(
 # 커서 객체 생성
 cursor = mysql_conn.cursor()
 
-<<<<<<< Updated upstream
-=======
 # 원하는 데이터 갯수만큼 보이게 하는 변수
 # per_page = 20
->>>>>>> Stashed changes
 
 # 라우트 정의: 데이터베이스에서 값을 가져와 JSON 응답으로 내보냅니다.
 @app.route("/", methods=["GET"])
@@ -83,10 +80,6 @@ def street_park():
 @app.route("/parkingJson", methods=["GET"])
 def get_parkingDataJson():
     cursor = mysql_conn.cursor()
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     sql = "select * from parking"
     cursor.execute(sql)
 
@@ -110,10 +103,6 @@ def get_parkingDataJson():
 @app.route("/holidayJson", methods=["GET"])
 def get_holidayDataJson():
     cursor = mysql_conn.cursor()
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     sql = "select * from holiday"
     cursor.execute(sql)
     data = cursor.fetchall()
@@ -123,14 +112,9 @@ def get_holidayDataJson():
 
 ##### street_ParkJson
 @app.route("/street_parkJson", methods=["GET"])
-<<<<<<< Updated upstream
 def get_street_parkDataJson():
     cursor = mysql_conn.cursor()
     sql = "select * from street_park"
-=======
-def get_street_parkDataJson() :
->>>>>>> Stashed changes
-    cursor = mysql_conn.cursor()
 
     sql = "select * from street_park"
     cursor.execute(sql)
