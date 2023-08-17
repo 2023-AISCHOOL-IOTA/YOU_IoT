@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">map</string>
-    <string name="enter_search_keyword">Enter search keyword</string>
-    <string name="search">Search</string>
-    <string name="textview">TextView</string>
-</resources>
