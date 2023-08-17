@@ -127,29 +127,30 @@
       display: none;
     }
 
-    /* 이미지 스타일링 */
     .example-section {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
     }
 
     .example-image {
-      max-width: 100%;
+      max-width: 50%; /* 이미지 크기 조정 */
       height: auto;
-      margin-bottom: 10px;
+      margin-right: 20px; /* 이미지와 설명 사이 간격 설정 */
       object-fit: cover;
       background-color: #ffffff;
     }
 
     .example-description {
       color: rgb(255, 255, 255);
-      font-size: 30px;
-      text-align: center;
+      font-size: 25px;
+      text-align: left; /* 텍스트 왼쪽 정렬 */
+      flex-grow: 1; /* 설명 영역이 자동으로 늘어남 */
     }
 
+
+    /* 웹 배경 검정색으로 설정 */
     body {
       background-color: rgb(0, 0, 0);
       margin: 0;
@@ -181,18 +182,36 @@
         <p>Road Parking은 노상 주차가 가능한 공간과 시간대를 시각적으로 보여주는 서비스입니다.</p>
     </div>
 
-    <!-- 첫 번째 예시 -->
+    <!-- 어플 홈화면을 웹에 표시 -->
     <div class="example-section animation-triggered">
-        <img src="/static/map.png" width="500" height="300" class="example-image">
+        <img src="/static/app_home.png" width="400" height="200" class="example-image">
         <p class="example-description">첫 번째 예시 설명입니다.</p>
     </div>
 
     <!-- 두 번째 예시 -->
     <div class="example-section animation-triggered">
-        <img src="/static/example.png" width="400" height="200" class="example-image">
+        <img src="/static/app_home2.png" width="400" height="200" class="example-image">
         <p class="example-description">두 번째 예시 설명입니다.</p>
     </div>
 
+    <!-- 세 번째 예시 -->
+    <div class="example-section animation-triggered">
+        <img src="/static/app_home3.png" width="400" height="200" class="example-image">
+        <p class="example-description">세 번째 예시 설명입니다.</p>
+    </div>
+
+    <!-- 네 번째 예시 -->
+    <div class="example-section animation-triggered">
+      <img src="/static/app_home4.png" width="400" height="200" class="example-image">
+      <p class="example-description">네 번째 예시 설명입니다.</p>
+    </div>
+
+    <!-- 다섯 번째 예시 -->
+      <div class="example-section animation-triggered">
+        <img src="/static/app_home5.png" width="400" height="200" class="example-image">
+        <p class="example-description">다섯 번째 예시 설명입니다.</p>
+    </div>
+  
     <!-- 푸터 -->
     <div class="footer">
         <p>© 2023 Road Parking Website. All rights reserved.</p>
